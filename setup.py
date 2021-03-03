@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='NlpToolkit-SemanticRoleLabeling',
-    version='1.0.0',
+    version='1.0.1',
     packages=['SemanticRoleLabeling', 'SemanticRoleLabeling.Sentence', 'SemanticRoleLabeling.Sentence.FrameNet',
               'SemanticRoleLabeling.Sentence.Propbank', 'SemanticRoleLabeling.ParseTree',
               'SemanticRoleLabeling.ParseTree.Propbank'],

@@ -2,7 +2,7 @@ from MorphologicalAnalysis.MorphologicalTag import MorphologicalTag
 
 from AnnotatedSentence.AnnotatedSentence import AnnotatedSentence
 from AnnotatedSentence.AnnotatedWord import AnnotatedWord
-from AnnotatedSentence.AutoProcessor.AutoArgument.SentenceAutoArgument import SentenceAutoArgument
+from SemanticRoleLabeling.Sentence.Propbank.SentenceAutoArgument import SentenceAutoArgument
 
 
 class TurkishSentenceAutoArgument(SentenceAutoArgument):

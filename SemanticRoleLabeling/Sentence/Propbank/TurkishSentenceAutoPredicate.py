@@ -2,7 +2,7 @@ from PropBank.FramesetList import FramesetList
 
 from AnnotatedSentence.AnnotatedSentence import AnnotatedSentence
 from AnnotatedSentence.AnnotatedWord import AnnotatedWord
-from AnnotatedSentence.AutoProcessor.AutoPredicate.SentenceAutoPredicate import SentenceAutoPredicate
+from SemanticRoleLabeling.Sentence.Propbank.SentenceAutoPredicate import SentenceAutoPredicate
 
 
 class TurkishSentenceAutoPredicate(SentenceAutoPredicate):

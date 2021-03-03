@@ -2,7 +2,7 @@ from FrameNet.FrameNet import FrameNet
 
 from AnnotatedSentence.AnnotatedSentence import AnnotatedSentence
 from AnnotatedSentence.AnnotatedWord import AnnotatedWord
-from AnnotatedSentence.AutoProcessor.AutoPredicate.SentenceAutoFramePredicate import SentenceAutoFramePredicate
+from SemanticRoleLabeling.Sentence.FrameNet.SentenceAutoFramePredicate import SentenceAutoFramePredicate
 
 
 class TurkishSentenceAutoFramePredicate(SentenceAutoFramePredicate):
