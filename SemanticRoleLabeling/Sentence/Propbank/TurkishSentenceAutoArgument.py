@@ -25,25 +25,25 @@ class TurkishSentenceAutoArgument(SentenceAutoArgument):
             If the method assigned at least one word a semantic role label, the method returns true; false otherwise.
         """
         modified = False
-        predicateId = None
+        predicate_id = None
         for i in range(sentence.wordCount()):
             word = sentence.getWord(i)
             if isinstance(word, AnnotatedWord):
                 if word.getArgument() is not None and word.getArgument().getArgumentType() == "PREDICATE":
-                    predicateId = word.getArgument().getId()
+                    predicate_id = word.getArgument().getId()
                     break
-        if predicateId is not None:
+        if predicate_id is not None:
             for i in range(sentence.wordCount()):
                 word = sentence.getWord(i)
                 if isinstance(word, AnnotatedWord) and word.getArgument() is None:
                     if word.getShallowParse() is not None and word.getShallowParse() == "ÖZNE":
                         if word.getParse() is not None and word.getParse().containsTag(MorphologicalTag.PASSIVE):
-                            word.setArgument("ARG1$" + predicateId)
+                            word.setArgument("ARG1$" + predicate_id)
                         else:
-                            word.setArgument("ARG0$" + predicateId)
+                            word.setArgument("ARG0$" + predicate_id)
                         modified = True
                     else:
                         if word.getShallowParse() is not None and word.getShallowParse() == "NESNE":
-                            word.setArgument("ARG1$" + predicateId)
+                            word.setArgument("ARG1$" + predicate_id)
                             modified = True
         return modified

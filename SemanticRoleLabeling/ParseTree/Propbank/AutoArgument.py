@@ -13,24 +13,26 @@ from AnnotatedTree.Processor.NodeDrawableCollector import NodeDrawableCollector
 
 class AutoArgument:
 
-    secondLanguage: ViewLayerType
+    second_language: ViewLayerType
 
     @abstractmethod
     def autoDetectArgument(self, parseNode: ParseNodeDrawable, argumentType: ArgumentType) -> bool:
         pass
 
     def __init__(self, secondLanguage: ViewLayerType):
-        self.secondLanguage = secondLanguage
+        self.second_language = secondLanguage
 
-    def autoArgument(self, parseTree: ParseTreeDrawable, frameset: Frameset):
-        nodeDrawableCollector = NodeDrawableCollector(parseTree.getRoot(), IsTransferable(self.secondLanguage))
-        leafList = nodeDrawableCollector.collect()
-        for parseNode in leafList:
-            if isinstance(parseNode, ParseNodeDrawable) and parseNode.getLayerData(ViewLayerType.PROPBANK) is None:
-                for argumentType in ArgumentType:
-                    if frameset.containsArgument(argumentType) and self.autoDetectArgument(parseNode, argumentType):
-                        parseNode.getLayerInfo().setLayerData(ViewLayerType.PROPBANK,
-                                                              ArgumentType.getPropbankType(argumentType))
-                if Word.isPunctuationSymbol(parseNode.getLayerData(self.secondLanguage)):
-                    parseNode.getLayerInfo().setLayerData(ViewLayerType.PROPBANK, "NONE")
+    def autoArgument(self,
+                     parseTree: ParseTreeDrawable,
+                     frameset: Frameset):
+        node_drawable_collector = NodeDrawableCollector(parseTree.getRoot(), IsTransferable(self.second_language))
+        leaf_list = node_drawable_collector.collect()
+        for parse_node in leaf_list:
+            if isinstance(parse_node, ParseNodeDrawable) and parse_node.getLayerData(ViewLayerType.PROPBANK) is None:
+                for argument_type in ArgumentType:
+                    if frameset.containsArgument(argument_type) and self.autoDetectArgument(parse_node, argument_type):
+                        parse_node.getLayerInfo().setLayerData(ViewLayerType.PROPBANK,
+                                                              ArgumentType.getPropbankType(argument_type))
+                if Word.isPunctuationSymbol(parse_node.getLayerData(self.second_language)):
+                    parse_node.getLayerInfo().setLayerData(ViewLayerType.PROPBANK, "NONE")
         parseTree.save()
