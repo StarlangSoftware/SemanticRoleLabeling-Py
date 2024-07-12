@@ -25,6 +25,14 @@ class AutoArgument:
     def autoArgument(self,
                      parseTree: ParseTreeDrawable,
                      frameset: Frameset):
+        """
+        Given the parse tree and the frame net, the method collects all leaf nodes and tries to set a propbank argument
+        label to them. Specifically it tries all possible argument types one by one ARG0 first, then ARG1, then ARG2 etc.
+        Each argument type has a special function to accept. The special function checks basically if there is a specific
+        type of ancestor (specific to the argument, for example SUBJ for ARG0), or not.
+        :param parseTree: Parse tree for semantic role labeling
+        :param frameset: Frame net used in labeling.
+        """
         node_drawable_collector = NodeDrawableCollector(parseTree.getRoot(), IsTransferable(self.second_language))
         leaf_list = node_drawable_collector.collect()
         for parse_node in leaf_list:
