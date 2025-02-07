@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name='NlpToolkit-SemanticRoleLabeling',
-    version='1.0.4',
+    version='1.0.5',
     packages=['SemanticRoleLabeling', 'SemanticRoleLabeling.Sentence', 'SemanticRoleLabeling.Sentence.FrameNet',
               'SemanticRoleLabeling.Sentence.Propbank', 'SemanticRoleLabeling.ParseTree',
               'SemanticRoleLabeling.ParseTree.Propbank'],

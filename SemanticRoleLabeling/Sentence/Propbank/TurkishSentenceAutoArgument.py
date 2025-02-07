@@ -29,21 +29,21 @@ class TurkishSentenceAutoArgument(SentenceAutoArgument):
         for i in range(sentence.wordCount()):
             word = sentence.getWord(i)
             if isinstance(word, AnnotatedWord):
-                if word.getArgument() is not None and word.getArgument().getArgumentType() == "PREDICATE":
-                    predicate_id = word.getArgument().getId()
+                if word.getArgumentList() is not None and word.getArgumentList().containsPredicate():
+                    predicate_id = word.getSemantic()
                     break
         if predicate_id is not None:
             for i in range(sentence.wordCount()):
                 word = sentence.getWord(i)
-                if isinstance(word, AnnotatedWord) and word.getArgument() is None:
+                if isinstance(word, AnnotatedWord) and word.getArgumentList() is None:
                     if word.getShallowParse() is not None and word.getShallowParse() == "ÖZNE":
                         if word.getParse() is not None and word.getParse().containsTag(MorphologicalTag.PASSIVE):
-                            word.setArgument("ARG1$" + predicate_id)
+                            word.setArgumentList("ARG1$" + predicate_id)
                         else:
-                            word.setArgument("ARG0$" + predicate_id)
+                            word.setArgumentList("ARG0$" + predicate_id)
                         modified = True
                     else:
                         if word.getShallowParse() is not None and word.getShallowParse() == "NESNE":
-                            word.setArgument("ARG1$" + predicate_id)
+                            word.setArgumentList("ARG1$" + predicate_id)
                             modified = True
         return modified
