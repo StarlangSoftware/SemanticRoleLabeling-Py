@@ -65,6 +65,22 @@ After annotating sentences, you can use [DataGenerator](https://github.com/starl
 
 After generating the classification dataset as above, one can use the [Classification](https://github.com/starlangsoftware/Classification-Py) package to generate machine learning models for the Semantic Role Labeling task.
 
+Annotated DataSets
+============
+## PropBank Annotation
+[Atis & Framenet & Tourism](http://104.247.163.162/nlptoolkit/turkish-semanticrolelabeling-propbank1.html)
+
+[Kenet](http://104.247.163.162/nlptoolkit/turkish-semanticrolelabeling-propbank2.html)
+
+[Penn-Treebank](http://104.247.163.162/nlptoolkit/turkish-semanticrolelabeling-propbank3.html)
+
+## Framenet Annotation
+[Atis & Framenet & Tourism](http://104.247.163.162/nlptoolkit/turkish-semanticrolelabeling-framenet1.html)
+
+[Kenet](http://104.247.163.162/nlptoolkit/turkish-semanticrolelabeling-framenet2.html)
+
+[Penn-Treebank](http://104.247.163.162/nlptoolkit/turkish-semanticrolelabeling-framenet3.html)
+
 For Developers
 ============
 
